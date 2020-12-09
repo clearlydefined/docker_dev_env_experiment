@@ -1,0 +1,3 @@
+CURATION_GITHUB_REPO="sample-curated-data"
+CURATION_GITHUB_TOKEN="<your GitHub token>"
+CRAWLER_GITHUB_TOKEN="<your GitHub token>"

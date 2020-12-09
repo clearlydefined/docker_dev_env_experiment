@@ -1,14 +1,15 @@
 version: "3.8"
 services:
-  web:
-    build: ../website
-    ports: 
-      - "80:80"
+#  web:
+#    build: ../website
+#    ports: 
+#      - "80:80"
   service:
     build: ../service
     ports:
       - "4000:4000"
-  crawler:
-    build: ../crawler
-    ports:
-      - "5000:5000"
+    env_file: .env
+#  crawler:
+#    build: ../crawler
+#    ports:
+#      - "5000:5000"
