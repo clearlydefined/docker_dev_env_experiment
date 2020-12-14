@@ -1,11 +1,17 @@
 version: "3.8"
 services:
-#  web:
-#    build: ../website
-#    ports: 
-#      - "80:80"
+  web:
+    build:
+      context: ../website
+      dockerfile: DevDockerfile
+    ports: 
+      - "3000:3000"
+    env_file: .env
+    stdin_open: true
   service:
-    build: ../service
+    build:
+      context: ../service
+      dockerfile: DevDockerfile
     ports:
       - "4000:4000"
     env_file: .env
