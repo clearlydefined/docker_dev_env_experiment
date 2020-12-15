@@ -29,4 +29,13 @@ services:
       - MONGO_INITDB_DATABASE=curations-dev-docker
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=secret
+#  definitions_mongo_db:
+#    image: "mongo:latest"
+#    ports:
+#      - "27018:27018"
+#    environment:
+#      - MONGO_INITDB_DATABASE=definitions-dev-docker
+#      - MONGO_INITDB_ROOT_USERNAME=admin
+#      - MONGO_INITDB_ROOT_PASSWORD=secret
+
 
