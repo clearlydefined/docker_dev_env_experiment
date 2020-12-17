@@ -196,7 +196,7 @@ And let's add the appropriate info to the .env file:
 ```bash
 CURATION_GITHUB_TOKEN="<Your GitHub Personal Access Token>"
 
-DEFINITION_MONGO_CONNECTION_STRING="mongodb://admin:secret@localhost:27018/definitions-dev-docker"
+DEFINITION_MONGO_CONNECTION_STRING="mongodb://admin:secret@localhost:27017/definitions-dev-docker"
 DEFINITION_STORE_PROVIDER="mongo"
 DEFINITION_MONGO_COLLECTION_NAME="definitions-paged"
 ```

@@ -15,6 +15,8 @@ services:
     ports:
       - "4000:4000"
     env_file: .env
+    links:
+      - clearlydefined_mongo_db
 #  crawler:
 #    build: ../crawler
 #    env_file: .env
@@ -32,20 +34,11 @@ services:
     image: "mongo:latest"
     ports:
       - "27017:27017"
-    networks:
-      - dev
-    environment:
-      - MONGO_INITDB_DATABASE=clearlydefined
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=secret
-  definitions_seed:
-    build: ./definitions_seed
-    networks:
-      - dev
-    depends_on:
-      - clearlydefined_mongo_db
+    volumes:
+      - mongo-data:/data/db:cached
+      - ./deploy/local/mongo_data:/mongo_data
+      - ./deploy/local/mongo_import.sh:/docker-entrypoint-initdb.d/mongo_import.sh
 
-networks:
-  dev:
-    name: dev
-    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
