@@ -6,7 +6,6 @@ services:
       dockerfile: DevDockerfile
     ports: 
       - "3000:3000"
-    env_file: .env
     stdin_open: true
   service:
     build:
@@ -17,19 +16,11 @@ services:
     env_file: .env
     links:
       - clearlydefined_mongo_db
-#  crawler:
-#    build: ../crawler
-#    env_file: .env
-#    ports:
-#      - "5000:5000"
-#  curations_mongo_db:
-#    image: "mongo:latest"
-#    ports:
-#      - "27017:27017"
-#    environment:
-#      - MONGO_INITDB_DATABASE=curations-dev-docker
-#      - MONGO_INITDB_ROOT_USERNAME=admin
-#      - MONGO_INITDB_ROOT_PASSWORD=secret
+  crawler:
+    build: ../crawler
+    env_file: .env
+    ports:
+      - "5000:5000"
   clearlydefined_mongo_db:
     image: "mongo:latest"
     ports:

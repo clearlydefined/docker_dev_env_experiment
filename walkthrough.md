@@ -180,17 +180,95 @@ services:
     env_file: .env
     ports:
       - "4000:4000"
-  curations_mongo_db:
+  clearlydefined_mongo_db:
     image: "mongo:latest"
     ports:
       - "27017:27017"
-    environment:
-      - MONGO_INITDB_DATABASE=curations-dev-docker
-      - MONGO_INITDB_ROOT_USERNAME=admin
-      - MONGO_INITDB_ROOT_PASSWORD=secret 
 ```
 
-And let's add the appropriate info to the .env file:
+### Linking the database to our service
+
+Our service will be communicating with our mongo database. Let's link them by adding this line to the 
+service in our compose file
+
+**docker-compose.yml**
+```
+(...)
+  service:
+    build:
+      context: ./service
+      dockerfile: DevDockerfile
+    env_file: .env
+    ports:
+      - "4000:4000"
+    links:
+      - clearlydefined_mongo_db
+(...)
+```
+
+So at this point, your whole docker-compose file should look like this:
+
+**docker-compose.yml**
+```
+version: "3.8"
+services:
+  web:
+    build:
+      context: ./website
+      dockerfile: DevDockerfile
+    ports:
+      - "3000:3000"
+    stdin_open: true
+  service:
+    build:
+      context: ./service
+      dockerfile: DevDockerfile
+    env_file: .env
+    ports:
+      - "4000:4000"
+  clearlydefined_mongo_db:
+    image: "mongo:latest"
+    ports:
+      - "27017:27017"
+```
+
+### Seeding data into the definitions database
+
+In order for this database to be useful, it needs to have some data in it. We will create another container
+to seed sample data into our database.
+
+First, from within your clearlydefined directory, go ahead and create a new directory:
+
+```bash
+$ mkdir mongo_seed
+```
+
+And create a new 
+
+```
+version: "3.8"
+services:
+  web:
+    build:
+      context: ./website
+      dockerfile: DevDockerfile
+    ports:
+      - "3000:3000"
+    stdin_open: true
+  service:
+    build:
+      context: ./service
+      dockerfile: DevDockerfile
+    env_file: .env
+    ports:
+      - "4000:4000"
+  clearlydefined_mongo_db:
+    image: "mongo:latest"
+    ports:
+      - "27017:27017"
+```
+
+
 
 **.env**
 ```bash
