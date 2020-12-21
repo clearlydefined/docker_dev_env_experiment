@@ -126,3 +126,9 @@ curl http://localhost:4000
 ## What You're Running
 
 Now, let's go through what your are running, container by container.
+
+* Clearly Defined Website 
+* Clearly Defined Service
+* Clearly Defined Crawler
+* Clearly Defined Mongo DB
+* Clearly Defined Mongo DB Seed
