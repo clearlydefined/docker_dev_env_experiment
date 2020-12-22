@@ -1,3 +1,22 @@
-CURATION_GITHUB_REPO="sample-curated-data"
+# Curation GitHub Info
+CURATION_GITHUB_BRANCH="master"
+CURATION_GITHUB_OWNER="clearlydefined"
+CURATION_GITHUB_REPO="curated-data-dev"
 CURATION_GITHUB_TOKEN="<your GitHub token>"
+
+# Curation Store Info
+CURATION_MONGO_CONNECTION_STRING="mongodb://clearlydefined_mongo_db"
+CURATION_MONGO_DB_NAME="clearlydefined"
+CURATION_MONGO_COLLECTION_NAME="curations"
+CURATION_PROVIDER="github"
+CURATION_STORE_PROVIDER="mongo"
+
+# Definition Store Info
+DEFINITION_STORE_PROVIDER="mongo"
+DEFINITION_MONGO_CONNECTION_STRING="mongodb://clearlydefined_mongo_db"
+DEFINITION_MONGO_DB_NAME="clearlydefined"
+DEFINITION_MONGO_COLLECTION_NAME="definitions-paged"
+
+# Crawler Info
 CRAWLER_GITHUB_TOKEN="<your GitHub token>"
+
