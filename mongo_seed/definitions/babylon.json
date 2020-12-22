@@ -1,0 +1,282 @@
+[{
+  "_id": "npm/npmjs/-/babylon/6.9.2",
+  "licensed": {
+    "declared": "MIT",
+    "toolScore": {
+      "total": 75,
+      "declared": 30,
+      "discovered": 0,
+      "consistency": 15,
+      "spdx": 15,
+      "texts": 15
+    },
+    "facets": {
+      "core": {
+        "attribution": {
+          "unknown": 26
+        },
+        "discovered": {
+          "unknown": 25,
+          "expressions": [
+            "MIT"
+          ]
+        },
+        "files": 26
+      }
+    },
+    "score": {
+      "total": 75,
+      "declared": 30,
+      "discovered": 0,
+      "consistency": 15,
+      "spdx": 15,
+      "texts": 15
+    }
+  },
+  "files": [
+    {
+      "path": "package/LICENSE",
+      "license": "MIT",
+      "natures": [
+        "license"
+      ],
+      "token": "2e97627cb278aa7556fb9e8817368302301a595b6c7582512b8d74c57b773652",
+      "hashes": {
+        "sha1": "8c20bc370f498b8aa6b4a3c3f747ed808200497e",
+        "sha256": "2e97627cb278aa7556fb9e8817368302301a595b6c7582512b8d74c57b773652"
+      }
+    },
+    {
+      "path": "package/CHANGELOG.md",
+      "hashes": {
+        "sha1": "310dbc65ecc2cea518a97084755b0602dfc1d58f",
+        "sha256": "637dbcb91c8ac4a25778118e5d8a97406fec05abbd5909b98456df3568de194e"
+      }
+    },
+    {
+      "path": "package/README.md",
+      "hashes": {
+        "sha1": "844d37f7be2e4642cff3037c03fd5aaa6dca34a0",
+        "sha256": "224236ad5c8ff6d599950738b61e6c4cb868f1f94878ded9194e720dd90d5fbb"
+      }
+    },
+    {
+      "path": "package/bin/babylon.js",
+      "hashes": {
+        "sha1": "3ab5f4f487e28d51823fbc66cfd2e00729bc88cd",
+        "sha256": "c67f7806933938c965e92e4a49ade390a9eb2bb0708ced863ff20551d7d8b8db"
+      }
+    },
+    {
+      "path": "package/bin/generate-identifier-regex.js",
+      "hashes": {
+        "sha1": "aa8131425b8ccd18a7243c8a732a4fe67ab62365",
+        "sha256": "d82f10ba863fb9111d8c745150d5dc2c61865931cfc68ff6fbaa419c9f5bc1ca"
+      }
+    },
+    {
+      "path": "package/lib/index.js",
+      "hashes": {
+        "sha1": "ed0402503f841996f566679fc70dae3fdd64a0fd",
+        "sha256": "b0e0d6940ec19bf0743a6962350987b2cce3b032e109f7884a6ed3c9968db8b5"
+      }
+    },
+    {
+      "path": "package/lib/options.js",
+      "hashes": {
+        "sha1": "b8f8b50bc0b73ef2d1730df879403237dac070af",
+        "sha256": "2a829053c5f3c0b822b72ea11019d2767500071e67f5e35659a1faf00adb35d3"
+      }
+    },
+    {
+      "path": "package/lib/parser/comments.js",
+      "hashes": {
+        "sha1": "2e1b1852523d76a852d3e80f28142d87388aba17",
+        "sha256": "dbb466d4a638eae6caab636e0a96a9be2da6e4bef8b80d7a2bbdb320f9cfefbb"
+      }
+    },
+    {
+      "path": "package/lib/parser/expression.js",
+      "hashes": {
+        "sha1": "2dea81498484f81b83912fb201c1c1a9b1e63f8e",
+        "sha256": "58c679b33b66987c95ca1a45657b47b813d6b51f2859e4a73db0ef39bb8c4ba8"
+      }
+    },
+    {
+      "path": "package/lib/parser/index.js",
+      "hashes": {
+        "sha1": "3d90d2f83d9b959c12f5be601fd09a34d8778624",
+        "sha256": "3f6f4281a0d09a0628027b57fe0c122a318551056ad9f22b69e105a580e86e18"
+      }
+    },
+    {
+      "path": "package/lib/parser/location.js",
+      "hashes": {
+        "sha1": "99c9bdcf255cfc26adb38245f8e9816d04739349",
+        "sha256": "ac1a40966f494425218f9c2177edef73f7c711f1d9551cc5ba6a97e3361d35b1"
+      }
+    },
+    {
+      "path": "package/lib/parser/lval.js",
+      "hashes": {
+        "sha1": "4177fd6be846a4a2518d249a0f055c31a862a8e7",
+        "sha256": "eb884263dd1e5b73083e6912f870b8da20f69315c8f02f9eeb865eca9350a0f9"
+      }
+    },
+    {
+      "path": "package/lib/parser/node.js",
+      "hashes": {
+        "sha1": "7e40079dd117f75b20644bf72be9634b55668718",
+        "sha256": "dfc8052985b34a4856d6ae629b9fdd2e5bbe6634dc5773f05f3f9d5c570c2b08"
+      }
+    },
+    {
+      "path": "package/lib/parser/statement.js",
+      "hashes": {
+        "sha1": "4bf6129ec692ec1eca31eb3c96b589b947098d2b",
+        "sha256": "41648108658d8f6388bc9912512f7225fc320388f4a9734a8fb8a75dafaaadcd"
+      }
+    },
+    {
+      "path": "package/lib/parser/util.js",
+      "hashes": {
+        "sha1": "22913ce5111e37a38e53928693da427cf1d3bcc6",
+        "sha256": "8b08ab98d3089632268cbea9c0f450da242adc7aab13a42c45ebf716aae5823e"
+      }
+    },
+    {
+      "path": "package/lib/plugins/flow.js",
+      "hashes": {
+        "sha1": "4aa95d2ee29543c7d56f1f6e0cda73969d190fc3",
+        "sha256": "388b7d5e3e6f7d7f2da26f62403f29f99b9550911f53ff59e5141eb29615a4c9"
+      }
+    },
+    {
+      "path": "package/lib/plugins/jsx/index.js",
+      "hashes": {
+        "sha1": "be69b1ba6abf7a91eb6d58b8e1235213701fbfea",
+        "sha256": "260a717815115976c1dc27917264986cba05663bed307b27525d1e761cc9a893"
+      }
+    },
+    {
+      "path": "package/lib/plugins/jsx/xhtml.js",
+      "hashes": {
+        "sha1": "051f7ded53fd054b1ecda3d231bbb1ca80f1c79c",
+        "sha256": "6cad6ddbefef6852afee5e4ba635f8ee8ceec65e9022619a8684ccd5d6676250"
+      }
+    },
+    {
+      "path": "package/lib/tokenizer/context.js",
+      "hashes": {
+        "sha1": "19ddcbf83c0cafe0ed3d2588155435eef7a07926",
+        "sha256": "625d2e29a0e587aa9743a1c821d358128942b496fd744bdb26c3db4e275bbdc9"
+      }
+    },
+    {
+      "path": "package/lib/tokenizer/index.js",
+      "hashes": {
+        "sha1": "91ddbb9f0ea2e7e766b7f925b974b2ffb840fa4c",
+        "sha256": "b471777918ba4b8f1f102d77b99d2e7ec9e1cf78ea545bbc721558459a3b740c"
+      }
+    },
+    {
+      "path": "package/lib/tokenizer/state.js",
+      "hashes": {
+        "sha1": "99fe807da15c00f431fb478d95e823e587273ae7",
+        "sha256": "5bcc32870c398bc8ddbcf66ed2392fae4be8732ee1fbcf496a9c6d3babee00cc"
+      }
+    },
+    {
+      "path": "package/lib/tokenizer/types.js",
+      "hashes": {
+        "sha1": "2820d1cc643e1a01058cd84ec5f8d1a5bdb6018b",
+        "sha256": "cb05fa70bc31c55f11896cb78c30fa4e7f814a433d30eb57370525de9d34f6d6"
+      }
+    },
+    {
+      "path": "package/lib/util/identifier.js",
+      "hashes": {
+        "sha1": "af8cbaba89db983765b66e5b79aae62c23ce65ba",
+        "sha256": "f6914cfa8bbd4c91a83ea21154e3fac0e2fa4750173b1977fe69ce256c7945f3"
+      }
+    },
+    {
+      "path": "package/lib/util/location.js",
+      "hashes": {
+        "sha1": "cee7b8aca8069c33455beeffcba36c2da88b75a5",
+        "sha256": "ff95705c71ffdef8b2826e36bd07f49d6c3d581cdf2a4fb5ff9be58cd63889c8"
+      }
+    },
+    {
+      "path": "package/lib/util/whitespace.js",
+      "hashes": {
+        "sha1": "125fb5f1a668ea1f97dcf5f2cf543944f02fe799",
+        "sha256": "95fc97ef6ea48b00307864212a530ae4e3e1e3984746c7384cbb738d9bb36c38"
+      }
+    },
+    {
+      "path": "package/package.json",
+      "hashes": {
+        "sha1": "9689f565255db389b66a864b6d3fff49ecf97b49",
+        "sha256": "7d43fd3348d10c634aad5ddcb391c67c00e98773f1013e3a1ff6df802bc75730"
+      },
+      "token": "7d43fd3348d10c634aad5ddcb391c67c00e98773f1013e3a1ff6df802bc75730"
+    }
+  ],
+  "described": {
+    "sourceLocation": {
+      "type": "git",
+      "provider": "github",
+      "namespace": "babel",
+      "name": "babylon",
+      "revision": "7d561e7a045c847ed3975f90d864e844aa5f77b4",
+      "url": "https://github.com/babel/babylon/tree/7d561e7a045c847ed3975f90d864e844aa5f77b4"
+    },
+    "hashes": {
+      "sha1": "94e19951e47401fb5643f94dfae94dbdcf993144",
+      "sha256": "500b5a47636abf257f59af15ba26d63adef2a4be0a714b467143c8a3d4b149f8"
+    },
+    "files": 26,
+    "releaseDate": "2016-09-09",
+    "urls": {
+      "registry": "https://npmjs.com/package/babylon",
+      "version": "https://npmjs.com/package/babylon/v/6.9.2",
+      "download": "https://registry.npmjs.com/babylon/-/babylon-6.9.2.tgz"
+    },
+    "projectWebsite": "https://babeljs.io/",
+    "issueTracker": "https://github.com/babel/babylon/issues",
+    "tools": [
+      "clearlydefined/1.3.3",
+      "licensee/9.12.0"
+    ],
+    "toolScore": {
+      "total": 100,
+      "date": 30,
+      "source": 70
+    },
+    "score": {
+      "total": 100,
+      "date": 30,
+      "source": 70
+    }
+  },
+  "coordinates": {
+    "type": "npm",
+    "provider": "npmjs",
+    "name": "babylon",
+    "revision": "6.9.2"
+  },
+  "_meta": {
+    "schemaVersion": "1.6.0",
+    "updated": "2019-03-12T19:38:24.981Z"
+  },
+  "scores": {
+    "effective": 87,
+    "tool": 87
+  },
+  "_mongo": {
+    "partitionKey": "npm/npmjs/-/babylon/6.9.2",
+    "page": 1,
+    "totalPages": 1
+  }
+}]

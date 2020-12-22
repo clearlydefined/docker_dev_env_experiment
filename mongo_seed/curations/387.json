@@ -1,0 +1,53 @@
+[
+  {
+    "_id": 387,
+    "pr": {
+      "number": 387,
+      "id": 254753509,
+      "state": "open",
+      "title": "update flyway maven plugin to the artistic license",
+      "body": "\n**Type:** Incorrect\n\n**Summary:**\nupdate flyway maven plugin to the artistic license\n\n**Details:**\nFixed the problem\n\n**Resolution:**\nChanged to the correct license\n\n**Affected definitions**:\n- flyway-maven-plugin 5.0.7",
+      "created_at": "2019-02-20T18:53:22Z",
+      "updated_at": "2019-02-20T18:53:24Z",
+      "closed_at": null,
+      "merged_at": null,
+      "merge_commit_sha": "377d70874899b17c054881929fdc1c4f7dd87ace",
+      "user": {
+        "login": "clearlydefinedbot"
+      },
+      "head": {
+        "sha": "cef2ce0577899f9ae429f3750fbf8ec34afb6f76",
+        "repo": {
+          "id": 115941547
+        }
+      },
+      "base": {
+        "sha": "1f8ee8bbe8200c494bdfa458b5b589dc5c0d9862",
+        "repo": {
+          "id": 115941547
+        }
+      }
+    },
+    "files": [
+      {
+        "path": "curations/maven/mavencentral/org.flywaydb/flyway-maven-plugin.yaml",
+        "coordinates": {
+          "type": "maven",
+          "provider": "mavencentral",
+          "namespace": "org.flywaydb",
+          "name": "flyway-maven-plugin"
+        },
+        "revisions": [
+          {
+            "revision": "5.0.7",
+            "data": {
+              "licensed": {
+                "declared": "Artistic-1.0-Perl"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+]
