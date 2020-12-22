@@ -1,12 +1,12 @@
 version: "3.8"
 services:
-#  web:
-#    build:
-#      context: ../website
-#      dockerfile: DevDockerfile
-#    ports: 
-#      - "3000:3000"
-#    stdin_open: true
+  web:
+    build:
+      context: ../website
+      dockerfile: DevDockerfile
+    ports: 
+      - "3000:3000"
+    stdin_open: true
   service:
     build:
       context: ../service
