@@ -17,6 +17,9 @@ DEFINITION_MONGO_CONNECTION_STRING="mongodb://clearlydefined_mongo_db"
 DEFINITION_MONGO_DB_NAME="clearlydefined"
 DEFINITION_MONGO_COLLECTION_NAME="definitions-paged"
 
+# Harvest Store Info
+HARVEST_STORE_PROVIDER="file"
+
 # Crawler Info
 CRAWLER_GITHUB_TOKEN="<your GitHub token>"
 
