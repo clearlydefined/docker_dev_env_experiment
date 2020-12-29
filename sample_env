@@ -20,6 +20,11 @@ DEFINITION_MONGO_COLLECTION_NAME="definitions-paged"
 # Harvest Store Info
 HARVEST_STORE_PROVIDER="file"
 
+# Note - this is mounted as a volume 
+# into the container for the 
+# clearly defined service
+# see docker-compose.yml for more details
+FILE_STORE_LOCATION="/tmp/harvested_data"
+
 # Crawler Info
 CRAWLER_GITHUB_TOKEN="<your GitHub token>"
-

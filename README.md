@@ -5,10 +5,9 @@ development environment for Clearly Defined including:
 * [website](https://github.com/clearlydefined/website)
 * [service](https://github.com/clearlydefined/service)
 * [crawler](https://github.com/clearlydefined/crawler)
+* harvest store (mounted as a volume in the service container)
 * definitions and curations mongo DB databases
 * queues
-
-We do this through running the various services in Docker.
 
 We do this through [Docker](https://www.docker.com/) and [Docker Compose](https://docs.docker.com/compose/)
 
@@ -100,11 +99,30 @@ CURATION_GITHUB_OWNER="clearlydefined"
 CURATION_GITHUB_REPO="curated-data-dev"
 CURATION_GITHUB_TOKEN="<Your GitHub Personal Access Token>
 
+
+# Curation Store Info
+CURATION_MONGO_CONNECTION_STRING="mongodb://clearlydefined_mongo_db"
+CURATION_MONGO_DB_NAME="clearlydefined"
+CURATION_MONGO_COLLECTION_NAME="curations"
+CURATION_PROVIDER="github"
+CURATION_STORE_PROVIDER="mongo"
+
+# Definition Store Info
 DEFINITION_STORE_PROVIDER="mongo"
 DEFINITION_MONGO_CONNECTION_STRING="mongodb://clearlydefined_mongo_db"
 DEFINITION_MONGO_DB_NAME="clearlydefined"
 DEFINITION_MONGO_COLLECTION_NAME="definitions-paged"
 
+# Harvest Store Info
+HARVEST_STORE_PROVIDER="file"
+
+# Note - this is mounted as a volume 
+# into the container for the 
+# clearly defined service
+# see docker-compose.yml for more details
+FILE_STORE_LOCATION="/tmp/harvested_data"
+
+# Crawler Info
 CRAWLER_GITHUB_TOKEN="<Your GitHub Personal Access Token>"
 ```
 
