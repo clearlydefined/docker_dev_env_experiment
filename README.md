@@ -160,6 +160,10 @@ This is the Clearly Defined React UI. It's what you see when you open your brows
 This is the backend of Clearly Defined, you can use it through the Website UI or through 
 querying it directly through the command line.
 
+Any Clearly Defined environment needs a place to store raw harvest information. In the case of this development environment, we use the file store for storing harvest information (our production setup uses Azure blob storage).
+
+This Docker setup creates a volume for the harvested data and mounts it in the Service container.
+
 ```bash
 $ curl http://localhost:4000
 
@@ -171,5 +175,31 @@ $ curl localhost:4000/definitions/maven/mavencentral/org.flywaydb/flyway-maven-p
 
 $ curl http://localhost:4000/curations/maven/mavencentral/org.flywaydb/flyway-maven-plugin/5.0.7?expand=prs
 
-'{"curations":{},"contributions":[{"pr":{"number":387,"id":254753509,"state":"open","title":"update flyway maven plugin to the artistic license","body":"\n**Type:** Incorrect\n\n**Summary:**\nupdate flyway maven plugin to the artistic license\n\n**Details:**\nFixed the problem\n\n**Resolution:**\nChanged to the correct license\n\n**Affected definitions**:\n- flyway-maven-plugin 5.0.7","created_at":"2019-02-20T18:53:22Z","updated_at":"2019-02-20T18:53:24Z","closed_at":null,"merged_at":null,"merge_commit_sha":"377d70874899b17c054881929fdc1c4f7dd87ace","user":{"login":"clearlydefinedbot"},"head":{"sha":"cef2ce0577899f9ae429f3750fbf8ec34afb6f76","repo":{"id":115941547}},"base":{"sha":"1f8ee8bbe8200c494bdfa458b5b589dc5c0d9862","repo":{"id":115941547}}},"files":[{"path":"curations/maven/mavencentral/org.flywaydb/flyway-maven-plugin.yaml","coordinates":{"type":"maven","provider":"mavencentral","namespace":"org.flywaydb","name":"flyway-maven-plugin"},"revisions":[{"revision":"5.0.7","data":{"licensed":{"declared":"Artistic-1.0-Perl"}}}]}]}]}n
+{"curations":{},"contributions":[{"pr":{"number":387,"id":254753509,"state":"open","title":"update flyway maven plugin to the artistic license","body":"\n**Type:** Incorrect\n\n**Summary:**\nupdate flyway maven plugin to the artistic license\n\n**Details:**\nFixed the problem\n\n**Resolution:**\nChanged to the correct license\n\n**Affected definitions**:\n- flyway-maven-plugin 5.0.7","created_at":"2019-02-20T18:53:22Z","updated_at":"2019-02-20T18:53:24Z","closed_at":null,"merged_at":null,"merge_commit_sha":"377d70874899b17c054881929fdc1c4f7dd87ace","user":{"login":"clearlydefinedbot"},"head":{"sha":"cef2ce0577899f9ae429f3750fbf8ec34afb6f76","repo":{"id":115941547}},"base":{"sha":"1f8ee8bbe8200c494bdfa458b5b589dc5c0d9862","repo":{"id":115941547}}},"files":[{"path":"curations/maven/mavencentral/org.flywaydb/flyway-maven-plugin.yaml","coordinates":{"type":"maven","provider":"mavencentral","namespace":"org.flywaydb","name":"flyway-maven-plugin"},"revisions":[{"revision":"5.0.7","data":{"licensed":{"declared":"Artistic-1.0-Perl"}}}]}]}]}
+
+$ curl http://localhost:4000/harvest/maven/mavencentral/org.flywaydb/flyway-maven-plugin/5.0.7?form=raw
+
+{"clearlydefined":{"1":{"_metadata":{"type":"maven","url":"cd:/maven/mavencentral/org.flywaydb/flyway-maven-plugin/5.0.7","fetchedAt":"2018-03-06T00:08:41.835Z","links":{"self":{"href":"urn:maven:mavencentral:org.flywaydb:flyway-maven-plugin:revision:5.0.7:tool:clearlydefined:1","type":"resource"}
+(...)
 ```
+
+### Clearly Defined Crawler
+
+TODO
+
+
+### Clearly Defined Mongo DB
+
+This container holds a Mongo database called **clearlydefined**
+
+The database contains two collections:
+* curations (contains curations)
+* definitions-paged (contains definitions)
+
+The reason the definitions database is called definitions-paged is because, previously, the definitions collection was not paged. The pagination was added in [this January 2019 pull request](https://github.com/clearlydefined/service/pull/364). Our production Azure setup includes both definitions and definitions-paged collections - the definitions-paged collection is the one that is actively used. This development environment includes the definitions-paged collection in order to more closely mirror production.
+
+These collections are seeded using the following container.
+
+### Clearly Defined Mongo Seed
+
+This container exists only to seed initial data into the Clearly Defined Mongo DB. It populates both the collections and definitions-paged collections with sample data.
