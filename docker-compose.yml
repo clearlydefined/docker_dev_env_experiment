@@ -1,12 +1,12 @@
 version: "3.8"
 services:
-#  web:
-#    build:
-#      context: ../website
-#      dockerfile: DevDockerfile
-#    ports: 
-#      - "3000:3000"
-#    stdin_open: true
+  web:
+    build:
+      context: ../website
+      dockerfile: DevDockerfile
+    ports: 
+      - "3000:3000"
+    stdin_open: true
   service:
     build:
       context: ../service
@@ -18,8 +18,6 @@ services:
       - ./harvested_data:/tmp/harvested_data/
     links:
       - clearlydefined_mongo_db
-#    volumes:
-#      - .:/harvested_data:/harvested_data
 #  crawler:
 #    build: ../crawler
 #    env_file: .env
