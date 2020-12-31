@@ -27,4 +27,9 @@ HARVEST_STORE_PROVIDER="file"
 FILE_STORE_LOCATION="/tmp/harvested_data"
 
 # Crawler Info
+CRAWLER_API_URL="http://crawler:5000"
 CRAWLER_GITHUB_TOKEN="<your GitHub token>"
+CRAWLER_DEADLETTER_PROVIDER=cd(file)
+CRAWLER_NAME=cdcrawlerlocal
+CRAWLER_QUEUE_PROVIDER=memory
+CRAWLER_STORE_PROVIDER=cd(file)

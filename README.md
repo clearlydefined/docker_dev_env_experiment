@@ -185,8 +185,24 @@ $ curl http://localhost:4000/harvest/maven/mavencentral/org.flywaydb/flyway-mave
 
 ### Clearly Defined Crawler
 
-TODO
+The Crawler is what "crawls" package registries, github, and more to scan and collect license information.
 
+This is run within it's own container. Queues used by the crawler are current run in the container's memory.
+
+As noted above, any Clearly Defined environment needs a place to store raw harvest information. In the case of this development environment, we use the same file storage place as the service (harvest information is stored in a volume that is mounted to both containers).
+
+To see this in action, you can request a package that has not been harvested through either the UI or through the service API.
+
+To request it through the UI, navigate to http://localhost:3000/definitions/npm/npmjs/-/npm/7.3.0 in your browser.
+
+To request it through the API, run:
+
+```bash
+$ curl localhost:4000/definitions/npm/npmjs/-/npm/7.3.0
+```
+
+You will first see that it does not have the definition. Check back in a few minutes after you
+run these commands and you should see newly harvested data.
 
 ### Clearly Defined Mongo DB
 
