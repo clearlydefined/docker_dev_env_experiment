@@ -2,14 +2,14 @@ version: "3.8"
 services:
   web:
     build:
-      context: ../website
+      context: ./website
       dockerfile: DevDockerfile
     ports: 
       - "3000:3000"
     stdin_open: true
   service:
     build:
-      context: ../service
+      context: ./service
       dockerfile: DevDockerfile
     ports:
       - "4000:4000"
@@ -21,7 +21,7 @@ services:
       - crawler
   crawler:
     build:
-      context: ../crawler
+      context: ./crawler
       dockerfile: DevDockerfile
     env_file: .env
     volumes:
