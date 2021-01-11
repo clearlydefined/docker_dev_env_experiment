@@ -37,6 +37,10 @@ $ git clone git@github.com:clearlydefined/service.git
 $ git clone git@github.com:clearlydefined/crawler.git
 ```
 
+**NOTE**:
+While this is still in development, you need to check out the `nell/dev-docker-file` branch for each of the
+three repos.
+
 Alternately, you can edit the **docker-compose.yml** file to point to where you have those repos cloned on your local system:
 
 **docker-compose.yml**
@@ -72,10 +76,6 @@ services:
     ports:
       - "5000:5000"
 ```
-
-**NOTE**:
-While this is still in development, you need to check out the `nell/dev-docker-file` branch for each of the
-three repos.
 
 ### Setting up environmental variables
 
