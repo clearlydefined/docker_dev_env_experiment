@@ -20,7 +20,7 @@ To run this environment, you need to install
 Start off by cloning this repository.
 
 ```bash
-$ git clone https://github.com/clearlydefined/docker_dev_env_experiment
+$ git clone git@github.com:clearlydefined/docker_dev_env_experiment.git
 ```
 
 Change into that directory:
@@ -32,9 +32,9 @@ $ cd docker_dev_env_experiment
 I prefer to clone my copies of the ClearlyDefined repos into this directory as well
 
 ```bash
-$ git clone https://github.com/clearlydefined/website
-$ git clone https://github.com/clearlydefined/service
-$ git clone https://github.com/clearlydefined/crawler
+$ git clone git@github.com:clearlydefined/website.git
+$ git clone git@github.com:clearlydefined/service.git
+$ git clone git@github.com:clearlydefined/crawler.git
 ```
 
 Alternately, you can edit the **docker-compose.yml** file to point to where you have those repos cloned on your local system:
