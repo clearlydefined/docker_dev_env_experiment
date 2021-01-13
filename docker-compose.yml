@@ -33,7 +33,6 @@ services:
     ports:
       - "27017:27017"
   clearlydefined_mongo_seed:
-    build:
-      context: ./mongo_seed 
+    image: "clearlydefined/docker_dev_env_experiment_clearlydefined_mongo_seed"
     links:
       - clearlydefined_mongo_db
