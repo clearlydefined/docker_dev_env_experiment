@@ -263,6 +263,24 @@ $ docker-compose up --detach --build service
 $ docker-compose up --detach --build crawler
 ```
 
+### Limitations
+
+When you look at a definition in the UI and create a curation (this uses the API call PATCH /curations), the curation WILL be opened 
+as a pull request on the [curated-data-dev](https://github.com/clearlydefined/curated-data-dev), but you will not see it
+under the "Curations" section when you refresh the definition's page.
+
+In the Azure dev and production environment, creating a curation will open a PR on the appropriate github curated-data repo,
+and then, once the pull request is open, GitHub will then use a webhook.
+
+The webhook will POST to an Azure logic app. That app will then put the curation on the Azure storage queue, which is how it will 
+end up in the curation store (in this case, mongo).
+
+I haven't yet figured out a way to do this without an Azure logic app (but will continue looking into this). I did try 
+creating a GitHub webhook to POST to http://localhost:4000, but GitHub requires that the webhooks it POSTs to be 
+accessible over the public internet.
+
+When I figure out a solution, I will update this README.
+
 ### Stopping containers
 
 You can stop and destroy the containers in the shell where you ran `docker-compose up` with CTRL c.
