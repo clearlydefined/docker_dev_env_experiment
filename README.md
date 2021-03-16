@@ -1,6 +1,6 @@
 # docker_dev_env_experiment
 
-Hello everyone! The purpose of this repo is to give you an easy way to run a full 
+Hello everyone! The purpose of this repo is to give you an easy way to run a full
 development environment for Clearly Defined including:
 * [website](https://github.com/clearlydefined/website)
 * [service](https://github.com/clearlydefined/service)
@@ -47,7 +47,7 @@ services:
     build:
       context: <path-to-website-repo-on-your-system>
       dockerfile: DevDockerfile
-    ports: 
+    ports:
       - "3000:3000"
     stdin_open: true
   service:
@@ -115,8 +115,8 @@ DEFINITION_MONGO_COLLECTION_NAME="definitions-paged"
 # Harvest Store Info
 HARVEST_STORE_PROVIDER="file"
 
-# Note - this is mounted as a volume 
-# into the container for the 
+# Note - this is mounted as a volume
+# into the container for the
 # clearly defined service
 # see docker-compose.yml for more details
 FILE_STORE_LOCATION="/tmp/harvested_data"
@@ -145,11 +145,32 @@ You can also query the service API with:
 curl http://localhost:4000
 ```
 
+### Additional Setup for GitHub curation(Optional)
+
+If you want to work with curation on GitHub, you could follow these steps
+1. Fork [curated-data-dev](https://github.com/clearlydefined/curated-data-dev) into your own GitHub account and modify the .env file.
+    ```
+    CURATION_GITHUB_OWNER="<your own GitHub account>"
+    CURATION_GITHUB_REPO="curated-data-dev"
+    ```
+2. In order to get GitHub webhook events, a http forwarding proxy is needed. Here [ngork](https://ngrok.com/download) has been used. Run `ngork http http://localhost:4000`. You will see something similar to this
+    ```
+    Session Status                online
+    Session Expires               1 hour, 59 minutes
+    Version                       2.3.35
+    Region                        United States (us)
+    Web Interface                 http://127.0.0.1:4040
+    Forwarding                    http://83f8ddfb177b.ngrok.io -> http://localhost:4000
+    Forwarding                    https://83f8ddfb177b.ngrok.io -> http://localhost:4000
+   ```
+3. Then you could create a webhook in your forked curate-data repository. Use ngork forwarding url(prefer https one) as the webhook payload URL. And put 'secret' as the webhook secret.
+4. You could verify Github webhook events with `ngork` management UI, http://localhost:4040
+
 ## What You're Running
 
 Now, let's go through what your are running, container by container.
 
-* Clearly Defined Website 
+* Clearly Defined Website
 * Clearly Defined Service
 * Clearly Defined Crawler
 * Clearly Defined Mongo DB
@@ -161,7 +182,7 @@ This is the Clearly Defined React UI. It's what you see when you open your brows
 
 ### Clearly Defined Service
 
-This is the backend of Clearly Defined, you can use it through the Website UI or through 
+This is the backend of Clearly Defined, you can use it through the Website UI or through
 querying it directly through the command line.
 
 Any Clearly Defined environment needs a place to store raw harvest information. In the case of this development environment, we use the file store for storing harvest information (our production setup uses Azure blob storage).
@@ -265,18 +286,18 @@ $ docker-compose up --detach --build crawler
 
 ### Limitations
 
-When you look at a definition in the UI and create a curation (this uses the API call PATCH /curations), the curation WILL be opened 
+When you look at a definition in the UI and create a curation (this uses the API call PATCH /curations), the curation WILL be opened
 as a pull request on the [curated-data-dev](https://github.com/clearlydefined/curated-data-dev), but you will not see it
 under the "Curations" section when you refresh the definition's page.
 
 In the Azure dev and production environment, creating a curation will open a PR on the appropriate github curated-data repo,
 and then, once the pull request is open, GitHub will then use a webhook.
 
-The webhook will POST to an Azure logic app. That app will then put the curation on the Azure storage queue, which is how it will 
+The webhook will POST to an Azure logic app. That app will then put the curation on the Azure storage queue, which is how it will
 end up in the curation store (in this case, mongo).
 
-I haven't yet figured out a way to do this without an Azure logic app (but will continue looking into this). I did try 
-creating a GitHub webhook to POST to http://localhost:4000, but GitHub requires that the webhooks it POSTs to be 
+I haven't yet figured out a way to do this without an Azure logic app (but will continue looking into this). I did try
+creating a GitHub webhook to POST to http://localhost:4000, but GitHub requires that the webhooks it POSTs to be
 accessible over the public internet.
 
 When I figure out a solution, I will update this README.
@@ -305,7 +326,7 @@ services:
 #    build:
 #      context: <path-to-website-repo-on-your-system>
 #      dockerfile: DevDockerfile
-#    ports: 
+#    ports:
 #      - "3000:3000"
 #    stdin_open: true
   service:
