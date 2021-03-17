@@ -163,7 +163,7 @@ If you want to work with curation on GitHub, you could follow these steps
     Forwarding                    http://83f8ddfb177b.ngrok.io -> http://localhost:4000
     Forwarding                    https://83f8ddfb177b.ngrok.io -> http://localhost:4000
    ```
-3. Then you could create a webhook in your forked curate-data repository. Use ngork forwarding url(prefer https one) as the webhook payload URL. And put 'secret' as the webhook secret.
+3. Then you could create a webhook in your forked curate-data repository. Use `<ngork forwarding url(prefer https one)>/webhook` as the webhook payload URL. And put 'secret' as the webhook secret.
 4. You could verify Github webhook events with `ngork` management UI, http://localhost:4040
 
 ## What You're Running
