@@ -166,6 +166,15 @@ If you want to work with curation on GitHub, you could follow these steps
 3. Then you could create a webhook in your forked curate-data repository. Use `<ngork forwarding url(prefer https one)>/webhook` as the webhook payload URL. And put 'secret' as the webhook secret.
 4. You could verify Github webhook events with `ngork` management UI, http://localhost:4040
 
+## Debug
+After running `docker-compose up`, you could attach debuggers to the running containers for service and crawler.
+
+### Debug service
+Open the folder to the local clone of [crawler](https://github.com/clearlydefined/crawler) with vscode. Choose `Docker: Attach to Node` and run debug.
+
+### Debug Crawler
+Open the folder to the local clone of [service](https://github.com/clearlydefined/service) with vscode. Choose `Attach to Docker` and run debug.
+
 ## What You're Running
 
 Now, let's go through what your are running, container by container.

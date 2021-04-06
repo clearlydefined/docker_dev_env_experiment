@@ -7,7 +7,7 @@ services:
     build:
       context: ./website
       dockerfile: DevDockerfile
-    ports: 
+    ports:
       - "3000:3000"
     stdin_open: true
   service:
@@ -16,7 +16,12 @@ services:
       dockerfile: DevDockerfile
     ports:
       - "4000:4000"
+      - "9230:9229"
     env_file: .env
+    entrypoint:
+      - "node"
+      - "--inspect=0.0.0.0:9229"
+      - "./bin/www"
     volumes:
       - ./harvested_data:/tmp/harvested_data/
     links:
@@ -31,6 +36,11 @@ services:
       - ./harvested_data:/tmp/harvested_data/
     ports:
       - "5000:5000"
+      - "9229:9229"
+    entrypoint:
+      - "node"
+      - "--inspect=0.0.0.0:9229"
+      - "./index.js"
   clearlydefined_mongo_db:
     image: "mongo:latest"
     ports:
