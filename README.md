@@ -103,6 +103,9 @@ CURATION_GITHUB_OWNER="clearlydefined"
 CURATION_GITHUB_REPO="curated-data-dev"
 CURATION_GITHUB_TOKEN="<your GitHub token>"
 
+# GitLab info
+GITLAB_TOKEN="<your GitLab token (unless you are working on code that interacts with the GitLab API, this can be a random string of characters)> 
+
 # Curation Store Info
 CURATION_MONGO_CONNECTION_STRING="mongodb://clearlydefined_mongo_db"
 CURATION_MONGO_DB_NAME="clearlydefined"
