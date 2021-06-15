@@ -11,6 +11,9 @@ CURATION_MONGO_COLLECTION_NAME="curations"
 CURATION_PROVIDER="github"
 CURATION_STORE_PROVIDER="mongo"
 
+# GitLab info
+GITLAB_TOKEN="<your GitLab token (unless you are working on code that interacts with the GitLab API, this can be a random string of characters)> 
+
 # Definition Store Info
 DEFINITION_STORE_PROVIDER="mongo"
 DEFINITION_MONGO_CONNECTION_STRING="mongodb://clearlydefined_mongo_db"
