@@ -23,7 +23,7 @@ services:
       - "--inspect=0.0.0.0:9229"
       - "./bin/www"
     volumes:
-      - ./harvested_data:/tmp/harvested_data/
+      - ./harvested_data:/tmp/harvested_data
     links:
       - clearlydefined_mongo_db
       - crawler
@@ -33,7 +33,7 @@ services:
       dockerfile: DevDockerfile
     env_file: .env
     volumes:
-      - ./harvested_data:/tmp/harvested_data/
+      - ./harvested_data:/tmp/harvested_data
     ports:
       - "5000:5000"
       - "9229:9229"
