@@ -156,7 +156,7 @@ If you want to work with curation on GitHub, you could follow these steps
     CURATION_GITHUB_OWNER="<your own GitHub account>"
     CURATION_GITHUB_REPO="curated-data-dev"
     ```
-2. In order to get GitHub webhook events, a http forwarding proxy is needed. Here [ngork](https://ngrok.com/download) has been used. Run `ngork http http://localhost:4000`. You will see something similar to this
+2. In order to get GitHub webhook events, a http forwarding proxy is needed. Here [ngrok](https://ngrok.com/download) has been used. Run `ngrok http http://localhost:4000`. You will see something similar to this
     ```
     Session Status                online
     Session Expires               1 hour, 59 minutes
@@ -166,8 +166,8 @@ If you want to work with curation on GitHub, you could follow these steps
     Forwarding                    http://83f8ddfb177b.ngrok.io -> http://localhost:4000
     Forwarding                    https://83f8ddfb177b.ngrok.io -> http://localhost:4000
    ```
-3. Then you could create a webhook in your forked curate-data repository. Use `<ngork forwarding url(prefer https one)>/webhook` as the webhook payload URL. And put 'secret' as the webhook secret.
-4. You could verify Github webhook events with `ngork` management UI, http://localhost:4040
+3. Then you could create a webhook in your forked curate-data repository. Use `<ngrok forwarding url(prefer https one)>/webhook` as the webhook payload URL. And put 'secret' as the webhook secret.
+4. You could verify Github webhook events with `ngrok` management UI, http://localhost:4040
 
 ## Debug
 After running `docker-compose up`, you could attach debuggers to the running containers for service and crawler.
