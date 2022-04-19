@@ -37,6 +37,7 @@ services:
     ports:
       - "5000:5000"
       - "9229:9229"
+    init: true
     entrypoint:
       - "node"
       - "--inspect=0.0.0.0:9229"
