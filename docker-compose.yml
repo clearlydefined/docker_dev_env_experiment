@@ -42,7 +42,7 @@ services:
       - "--inspect=0.0.0.0:9229"
       - "./index.js"
   clearlydefined_mongo_db:
-    image: "mongo:latest"
+    image: "mongo:5.0.6"
     ports:
       - "27017:27017"
   clearlydefined_mongo_seed:
