@@ -1,2 +1,5 @@
 .env
 harvested_data/*
+crawler/*
+service/*
+website/*

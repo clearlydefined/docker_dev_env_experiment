@@ -140,6 +140,8 @@ $ docker-compose build
 $ docker-compose up
 ```
 
+*NOTE: If you have an issue seeding, prune all volumes, containers, and images then try again.*
+
 And head to http://localhost:3000 to see your running website UI along with some seeded data!
 
 You can also query the service API with:
