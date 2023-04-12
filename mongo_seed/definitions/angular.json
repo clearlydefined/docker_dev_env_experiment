@@ -32,62 +32,6 @@
       "source": 70
     }
   },
-  "files": [
-    {
-      "path": "package/LICENSE.md",
-      "license": "MIT",
-      "natures": [
-        "license"
-      ],
-      "attributions": [
-        "Copyright (c) 2016 Angular"
-      ],
-      "hashes": {
-        "sha1": "682346b34c58e0a9d2deb60ccd8b8c55cb474cea"
-      }
-    },
-    {
-      "path": "package/bower.json",
-      "hashes": {
-        "sha1": "d57e302f201d7ccff4430b1a81611812b210fb15"
-      }
-    },
-    {
-      "path": "package/angular.min.js",
-      "attributions": [
-        "(c) 2010-2018 Google, Inc. http://angularjs.org"
-      ],
-      "hashes": {
-        "sha1": "382ea6ce5bb85a666aa9fb35a4c24eed58441258"
-      }
-    },
-    {
-      "path": "package/package.json",
-      "license": "MIT",
-      "hashes": {
-        "sha1": "c479ce5c51b4b5dac7b7a79700f22a50343475f9"
-      }
-    },
-    {
-      "path": "package/angular.js",
-      "attributions": [
-        "(c) 2010-2018 Google, Inc. http://angularjs.org"
-      ],
-      "hashes": {
-        "sha1": "4eb1606146f3aca57d69d1b55c7b0384f538b77d"
-      }
-    },
-    {
-      "path": "package/README.md",
-      "license": "MIT",
-      "attributions": [
-        "Copyright (c) 2010-2015 Google, Inc. http://angularjs.org"
-      ],
-      "hashes": {
-        "sha1": "fc6245aa21a1c521fc39955cc04d3959c68aee95"
-      }
-    }
-  ],
   "licensed": {
     "declared": "MIT",
     "toolScore": {
@@ -139,10 +83,5 @@
   "scores": {
     "effective": 84,
     "tool": 84
-  },
-  "_mongo": {
-    "partitionKey": "npm/npmjs/-/angular/1.6.9",
-    "page": 1,
-    "totalPages": 1
   }
 }]

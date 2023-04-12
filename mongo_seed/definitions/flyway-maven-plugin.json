@@ -63,11 +63,6 @@
     "scores": {
       "effective": 57,
       "tool": 57
-    },
-    "_mongo": {
-      "partitionKey": "maven/mavencentral/org.flywaydb/flyway-maven-plugin/5.0.7",
-      "page": 1,
-      "totalPages": 1
     }
   }
 ]

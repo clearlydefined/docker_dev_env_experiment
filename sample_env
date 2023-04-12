@@ -18,7 +18,7 @@ GITLAB_TOKEN="<your GitLab token (unless you are working on code that interacts 
 DEFINITION_STORE_PROVIDER="mongo"
 DEFINITION_MONGO_CONNECTION_STRING="mongodb://clearlydefined_mongo_db"
 DEFINITION_MONGO_DB_NAME="clearlydefined"
-DEFINITION_MONGO_COLLECTION_NAME="definitions-paged"
+DEFINITION_MONGO_TRIMMED_COLLECTION_NAME="definitions-trimmed"
 
 # Harvest Store Info
 HARVEST_STORE_PROVIDER="file"

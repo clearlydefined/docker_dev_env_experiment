@@ -1,7 +1,7 @@
 # Copyright (c) Microsoft Corporation and others. Licensed under the MIT license.
 # SPDX-License-Identifier: MIT
 
-FROM mongo
+FROM mongo:5.0.6
 RUN mkdir /definitions
 COPY ./definitions/* definitions/
 COPY ./curations/* curations/
