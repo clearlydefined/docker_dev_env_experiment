@@ -110,10 +110,10 @@ CURATION_PROVIDER="github"
 CURATION_STORE_PROVIDER="mongo"
 
 # Definition Store Info
-DEFINITION_STORE_PROVIDER="mongoTrimmed"
+DEFINITION_STORE_PROVIDER="mongo"
 DEFINITION_MONGO_CONNECTION_STRING="mongodb://clearlydefined_mongo_db"
 DEFINITION_MONGO_DB_NAME="clearlydefined"
-DEFINITION_MONGO_TRIMMED_COLLECTION_NAME="definitions-trimmed"
+DEFINITION_MONGO_COLLECTION_NAME="definitions-paged"
 
 # Harvest Store Info
 HARVEST_STORE_PROVIDER="file"
@@ -247,12 +247,16 @@ run these commands and you should see newly harvested data.
 
 This container holds a Mongo database called **clearlydefined**
 
-The database contains two collections:
+The database contains the following collections:
 * curations (contains curations)
-* definitions-trimmed (contains definitions)
+* definitions-paged (contains definitions)
+* definitions-trimmed (contains definitions without files)
 
-The reason the definitions database is called definitions-trimmed is because, previously, the definitions collection was paged. The pagination was added in [this January 2019 pull request](https://github.com/clearlydefined/service/pull/364). To improve performance and reduce cost of the definition database, [this Feb 2023 pull request](https://github.com/clearlydefined/service/pull/976) subsequently stores definitions without files. Our production Azure setup includes definitions-trimmed, that is actively used. This development environment includes the definitions-trimmed collection in order to mirror production.
-This collection is seeded using the Clearly Defined Mongo Seed container.
+Our production Azure setup includes definitions-trimmed, that is actively used. The reason the definitions collection is called definitions-trimmed is because, previously, the definitions collection was paged. The pagination was added in [this January 2019 pull request](https://github.com/clearlydefined/service/pull/364). To improve performance and reduce cost of the definition database, [this Feb 2023 pull request](https://github.com/clearlydefined/service/pull/976) subsequently stores definitions without files. 
+
+The sample setup uses definitions-paged instead of definitions-trimmed because definitions-trimmed works well as part of a definition store collection, but not on its own. In comparison, definitions-paged collection stores the definitions in entirety, and can be used as a standalone definitions store. To emulate the production environment more closely, one can use dispatch+file+mongoTrimmed as DEFINITION_STORE_PROVIDER.
+
+These collections are seeded using the Clearly Defined Mongo Seed container.
 
 If you have [mongodb](https://docs.mongodb.com/manual/installation/) installed on your local system, you can attach to the Mongo database with:
 
@@ -265,7 +269,7 @@ You can also do this through the [Docker desktop client](https://www.docker.com/
 
 ### Clearly Defined Mongo Seed
 
-This container exists only to seed initial data into the Clearly Defined Mongo DB. It populates both the collections and definitions-trimmed collections with sample data.
+This container exists only to seed initial data into the Clearly Defined Mongo DB. It populates the collections with sample data.
 
 ## Using
 
