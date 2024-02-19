@@ -4,6 +4,7 @@
 version: "3.8"
 services:
   web:
+    platform: linux/amd64
     build:
       context: ./website
       dockerfile: DevDockerfile
@@ -11,6 +12,7 @@ services:
       - "3000:3000"
     stdin_open: true
   service:
+    platform: linux/amd64
     build:
       context: ./service
       dockerfile: DevDockerfile
@@ -28,6 +30,7 @@ services:
       - clearlydefined_mongo_db
       - crawler
   crawler:
+    platform: linux/amd64
     build:
       context: ./crawler
       dockerfile: DevDockerfile
@@ -42,13 +45,12 @@ services:
       - "--inspect=0.0.0.0:9229"
       - "./index.js"
   clearlydefined_mongo_db:
+    platform: linux/amd64
     image: "mongo:5.0.6"
     ports:
       - "27017:27017"
   clearlydefined_mongo_seed:
+    platform: linux/amd64
     image: "clearlydefined/docker_dev_env_experiment_clearlydefined_mongo_seed"
-    build:
-      context: ./mongo_seed
-      dockerfile: Dockerfile
     links:
       - clearlydefined_mongo_db

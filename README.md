@@ -73,6 +73,14 @@ services:
       - "5000:5000"
 ```
 
+If you are using MAC systems, please change the version of Mongo from 5.0.6 to 4.4.28 in docker-compose.yml file. 
+```bash
+clearlydefined_mongo_db:
+    image: "mongo:4.4.28"
+    ports:
+      - "27017:27017"
+```
+
 ### Setting up environmental variables
 
 This environment handles environmental variables a little differently from the [historical Clearly Defined dev environment instructions](https://docs.clearlydefined.io/contributing-code).
