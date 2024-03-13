@@ -73,7 +73,7 @@ services:
       - "5000:5000"
 ```
 
-If you are using MAC systems and your CPU does not have an AVX support, please change the version of Mongo from 5.0.6 to 4.4.28 in docker-compose.yml file. 
+If you are using a Mac computer and your CPU does not have a AVX support, please change the version of Mongo from 5.0.6 to 4.4.28 in docker-compose.yml file. 
 ```bash
 clearlydefined_mongo_db:
     image: "mongo:4.4.28"
