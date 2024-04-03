@@ -279,7 +279,7 @@ You can also do this through the [Docker desktop client](https://www.docker.com/
 
 This container exists only to seed initial data into the Clearly Defined Mongo DB. It populates the collections with sample data.
 
-If you wish to build this container yourself, please follow the instructions [https://github.com/clearlydefined/docker_dev_env_experiment/blob/main/mongo_seed/README.md](here)
+If you wish to build this container yourself, please follow the instructions [here](https://github.com/clearlydefined/docker_dev_env_experiment/blob/main/mongo_seed/README.md)
 
 ## Using
 
