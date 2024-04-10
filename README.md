@@ -73,6 +73,14 @@ services:
       - "5000:5000"
 ```
 
+If you are using a Mac computer and your CPU does not have a AVX support, please change the version of Mongo from 5.0.6 to 4.4.28 in docker-compose.yml file. 
+```bash
+clearlydefined_mongo_db:
+    image: "mongo:4.4.28"
+    ports:
+      - "27017:27017"
+```
+
 ### Setting up environmental variables
 
 This environment handles environmental variables a little differently from the [historical Clearly Defined dev environment instructions](https://docs.clearlydefined.io/contributing-code).
@@ -270,6 +278,8 @@ You can also do this through the [Docker desktop client](https://www.docker.com/
 ### Clearly Defined Mongo Seed
 
 This container exists only to seed initial data into the Clearly Defined Mongo DB. It populates the collections with sample data.
+
+If you wish to build this container yourself, please follow the instructions [here](https://github.com/clearlydefined/docker_dev_env_experiment/blob/main/mongo_seed/README.md)
 
 ## Using
 
