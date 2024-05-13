@@ -29,6 +29,9 @@ HARVEST_STORE_PROVIDER="file"
 # see docker-compose.yml for more details
 FILE_STORE_LOCATION="/tmp/harvested_data"
 
+WEBHOOK_CRAWLER_SECRET="secret"
+WEBHOOK_GITHUB_SECRET="secret"
+
 # Crawler Info
 CRAWLER_API_URL="http://crawler:5000"
 CRAWLER_GITHUB_TOKEN="<your GitHub token>"
