@@ -1,5 +1,5 @@
 .env
-harvested_data/*
-crawler/*
-service/*
-website/*
+harvested_data/
+crawler/
+service/
+website/
