@@ -45,6 +45,7 @@ services:
       - "--inspect=0.0.0.0:9229"
       - "./index.js"
   clearlydefined_mongo_db:
+    # image: "mongo:4.4.28"
     image: "mongo:5.0.6"
     ports:
       - "27017:27017"
