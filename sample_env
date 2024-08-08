@@ -1,4 +1,7 @@
 # Curation GitHub Info
+# Note: 
+# - GitHub token with minimal access (e.g. repo:public_repo) is required
+# - This can be the same token used for CRAWLER_GITHUB_TOKEN.
 CURATION_GITHUB_BRANCH="master"
 CURATION_GITHUB_OWNER="clearlydefined"
 CURATION_GITHUB_REPO="curated-data-dev"
@@ -23,16 +26,18 @@ DEFINITION_MONGO_COLLECTION_NAME="definitions-paged"
 # Harvest Store Info
 HARVEST_STORE_PROVIDER="file"
 
-# Note - this is mounted as a volume 
-# into the container for the 
-# clearly defined service
-# see docker-compose.yml for more details
+# Note:
+# - This is mounted as a volume into the container for the clearly defined service.
+#   See docker-compose.yml for more details.
 FILE_STORE_LOCATION="/tmp/harvested_data"
 
 WEBHOOK_CRAWLER_SECRET="secret"
 WEBHOOK_GITHUB_SECRET="secret"
 
 # Crawler Info
+# Note 
+# - GitHub token with minimal access (e.g. repo:public_repo) is required.
+# - This can be the same token used for CURATION_GITHUB_TOKEN
 CRAWLER_API_URL="http://crawler:5000"
 CRAWLER_GITHUB_TOKEN="<your GitHub token>"
 CRAWLER_DEADLETTER_PROVIDER=cd(file)
