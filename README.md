@@ -162,7 +162,9 @@ curl http://localhost:4000
 
 Both production and development deployments utilize Azure storage. To facilitate development and debugging, the Azurite open-source emulator can be used. For more details on Azurite, see the [documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=docker-hub%2Cblob-storage).
 
-The `docker-compose-azurite.yml` file is modified to include the Azurite Docker container. Environment variables are documented in the `azurite_localdb_env`. 
+The `docker-compose-azurite.yml` file is modified to include the Azurite Docker container. Environment variables are documented in `azurite_localdb_env` to simulate deployment using Azure storage and a local MongoDB. For a more detailed explanation of the environment variables, refer to the [service](https://github.com/clearlydefined/operations/blob/main/service_config/service.md) and [crawler](https://github.com/clearlydefined/operations/blob/main/service_config/crawler.md) configurations.
+
+To view the data stored in Azurite, you can use Storage Explorer. See the [documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=docker-hub%2Cblob-storage#microsoft-azure-storage-explorer) for connection information.
 
 
 ### Additional Setup for GitHub curation(Optional)

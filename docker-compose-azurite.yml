@@ -54,7 +54,7 @@ services:
       - "10001:10001"
       - "10002:10002"
     volumes:
-      - ./azurite-data:/data
+      - ./azurite_data:/data
   clearlydefined_mongo_db:
     # image: "mongo:4.4.28"
     image: "mongo:5.0.6"
