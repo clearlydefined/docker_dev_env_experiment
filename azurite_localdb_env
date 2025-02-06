@@ -1,0 +1,63 @@
+# Curation GitHub Info
+# Note: 
+# - GitHub token with minimal access (e.g. repo:public_repo) is required
+# - This can be the same token used for CRAWLER_GITHUB_TOKEN.
+CURATION_GITHUB_BRANCH="master"
+CURATION_GITHUB_OWNER="clearlydefined"
+CURATION_GITHUB_REPO="curated-data-dev"
+CURATION_GITHUB_TOKEN="<your GitHub token>"
+
+# Curation Store Info
+CURATION_MONGO_CONNECTION_STRING="mongodb://clearlydefined_mongo_db"
+CURATION_MONGO_DB_NAME="clearlydefined"
+CURATION_MONGO_COLLECTION_NAME="curations"
+CURATION_PROVIDER="github"
+CURATION_STORE_PROVIDER="mongo"
+
+# GitLab info
+GITLAB_TOKEN="<your GitLab token (unless you are working on code that interacts with the GitLab API, this can be a random string of characters)>"
+
+# Definition Store Info
+DEFINITION_STORE_PROVIDER=dispatch+azure+mongoTrimmed
+DEFINITION_MONGO_CONNECTION_STRING="mongodb://clearlydefined_mongo_db"
+DEFINITION_MONGO_DB_NAME="clearlydefined"
+
+DEFINITION_UPGRADE_PROVIDER=upgradeQueue
+DEFINITION_UPGRADE_QUEUE_PROVIDER=azure
+DEFINITION_UPGRADE_QUEUE_NAME=definitions-upgrade-test
+
+# Harvest Store Info
+HARVEST_STORE_PROVIDER=azure
+HARVEST_AZBLOB_CONTAINER_NAME=develop-test
+HARVEST_AZBLOB_CONNECTION_STRING=DefaultEndpointsProtocol=http;AccountName=devstoreaccount1;AccountKey=Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==;BlobEndpoint=http://azurite:10000/devstoreaccount1;QueueEndpoint=http://azurite:10001/devstoreaccount1;TableEndpoint=http://azurite:10002/devstoreaccount1;
+
+HARVEST_QUEUE_PROVIDER=azure
+HARVEST_QUEUE_NAME=harvests-test
+
+# service to crawler
+HARVESTER_PROVIDER=crawlerQueue
+HARVEST_QUEUE_PREFIX=cdcrawlerdev-test
+
+# Note:
+# - This is mounted as a volume into the container for the clearly defined service.
+#   See docker-compose.yml for more details.
+FILE_STORE_LOCATION="/tmp/harvested_data"
+
+WEBHOOK_CRAWLER_SECRET="secret"
+WEBHOOK_GITHUB_SECRET="secret"
+
+# Crawler Info
+# Note 
+# - GitHub token with minimal access (e.g. repo:public_repo) is required.
+# - This can be the same token used for CURATION_GITHUB_TOKEN
+CRAWLER_API_URL="http://crawler:5000"
+CRAWLER_GITHUB_TOKEN="<your GitHub token>"
+CRAWLER_DEADLETTER_PROVIDER=cd(file)
+CRAWLER_NAME=cdcrawlerlocal
+CRAWLER_AZBLOB_CONNECTION_STRING=${HARVEST_AZBLOB_CONNECTION_STRING}
+CRAWLER_QUEUE_PROVIDER=storageQueue
+CRAWLER_QUEUE_PREFIX=cdcrawlerdev-test
+
+CRAWLER_STORE_PROVIDER=cdDispatch+cd(azblob)+azqueue
+CRAWLER_AZBLOB_CONTAINER_NAME=${HARVEST_AZBLOB_CONTAINER_NAME}
+CRAWLER_HARVESTS_QUEUE_NAME=${HARVEST_QUEUE_NAME}

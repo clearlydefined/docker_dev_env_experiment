@@ -158,6 +158,13 @@ You can also query the service API with:
 curl http://localhost:4000
 ```
 
+### Additional Setup to Simulate Deployment (Optional)
+
+Both production and development deployments utilize Azure storage. To facilitate development and debugging, the Azurite open-source emulator can be used. For more details on Azurite, see the [documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=docker-hub%2Cblob-storage).
+
+The `docker-compose-azurite.yml` file is modified to include the Azurite Docker container. Environment variables are documented in the `azurite_localdb_env`. 
+
+
 ### Additional Setup for GitHub curation(Optional)
 
 If you want to work with curation on GitHub, you could follow these steps

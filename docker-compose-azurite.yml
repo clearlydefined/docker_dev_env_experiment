@@ -1,0 +1,66 @@
+# Copyright (c) Microsoft Corporation and others. Licensed under the MIT license.
+# SPDX-License-Identifier: MIT
+
+version: "3.8"
+services:
+  web:
+    platform: linux/amd64
+    build:
+      context: ./website
+      dockerfile: DevDockerfile
+    ports:
+      - "3000:3000"
+    stdin_open: true
+  service:
+    platform: linux/amd64
+    build:
+      context: ./service
+      dockerfile: DevDockerfile
+    ports:
+      - "4000:4000"
+      - "9230:9229"
+    env_file: azurite_localdb_env
+    entrypoint:
+      - "node"
+      - "--inspect=0.0.0.0:9229"
+      - "./bin/www"
+    volumes:
+      - ./harvested_data:/tmp/harvested_data
+    links:
+      - clearlydefined_mongo_db
+      - crawler
+      - azurite
+  crawler:
+    platform: linux/amd64
+    build:
+      context: ./crawler
+      dockerfile: DevDockerfile
+    env_file: azurite_localdb_env
+    volumes:
+      - ./harvested_data:/tmp/harvested_data
+    ports:
+      - "5000:5000"
+      - "9229:9229"
+    entrypoint:
+      - "node"
+      - "--inspect=0.0.0.0:9229"
+      - "./index.js"
+    links:
+      - azurite
+  azurite:
+    image: "mcr.microsoft.com/azure-storage/azurite"
+    ports:
+      - "10000:10000"
+      - "10001:10001"
+      - "10002:10002"
+    volumes:
+      - ./azurite-data:/data
+  clearlydefined_mongo_db:
+    # image: "mongo:4.4.28"
+    image: "mongo:5.0.6"
+    ports:
+      - "27017:27017"
+  clearlydefined_mongo_seed:
+    image: "clearlydefined/docker_dev_env_experiment_clearlydefined_mongo_seed"
+    links:
+      - clearlydefined_mongo_db
