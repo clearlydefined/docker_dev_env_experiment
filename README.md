@@ -164,6 +164,13 @@ Both production and development deployments utilize Azure storage. To facilitate
 
 The `docker-compose-azurite.yml` file is modified to include the Azurite Docker container. Environment variables are documented in `azurite_localdb_env` to simulate deployment using Azure storage and a local MongoDB. For a more detailed explanation of the environment variables, refer to the [service](https://github.com/clearlydefined/operations/blob/main/service_config/service.md) and [crawler](https://github.com/clearlydefined/operations/blob/main/service_config/crawler.md) configurations.
 
+**Setup Steps:**
+- Replace the token placeholders in `azurite_localdb_env` and rename the file to `azurite_localdb.env`.
+- Run the command:
+```bash
+docker-compose -f docker-compose-azurite.yml up
+```
+
 To view the data stored in Azurite, you can use Storage Explorer. See the [documentation](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azurite?tabs=docker-hub%2Cblob-storage#microsoft-azure-storage-explorer) for connection information.
 
 

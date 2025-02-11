@@ -18,7 +18,7 @@ services:
     ports:
       - "4000:4000"
       - "9230:9229"
-    env_file: azurite_localdb_env
+    env_file: azurite_localdb.env
     entrypoint:
       - "node"
       - "--inspect=0.0.0.0:9229"
@@ -34,7 +34,7 @@ services:
     build:
       context: ./crawler
       dockerfile: DevDockerfile
-    env_file: azurite_localdb_env
+    env_file: azurite_localdb.env
     volumes:
       - ./harvested_data:/tmp/harvested_data
     ports:
