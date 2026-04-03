@@ -26,6 +26,8 @@ DEFINITION_UPGRADE_PROVIDER=upgradeQueue
 DEFINITION_UPGRADE_QUEUE_PROVIDER=azure
 DEFINITION_UPGRADE_QUEUE_NAME=definitions-upgrade-test
 
+HARVEST_CACHE_TTL_IN_SECONDS=60
+
 # Harvest Store Info
 HARVEST_STORE_PROVIDER=azure
 HARVEST_AZBLOB_CONTAINER_NAME=develop-test
@@ -37,11 +39,6 @@ HARVEST_QUEUE_NAME=harvests-test
 # service to crawler
 HARVESTER_PROVIDER=crawlerQueue
 HARVEST_QUEUE_PREFIX=cdcrawlerdev-test
-
-# Note:
-# - This is mounted as a volume into the container for the clearly defined service.
-#   See docker-compose.yml for more details.
-FILE_STORE_LOCATION="/tmp/harvested_data"
 
 WEBHOOK_CRAWLER_SECRET="secret"
 WEBHOOK_GITHUB_SECRET="secret"
