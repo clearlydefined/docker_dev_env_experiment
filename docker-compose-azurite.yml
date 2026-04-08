@@ -19,12 +19,12 @@ services:
       - "4000:4000"
       - "9230:9229"
     env_file: azurite_localdb.env
+    environment:
+      - LOGGER_LOG_TO_CONSOLE=true
     entrypoint:
       - "node"
       - "--inspect=0.0.0.0:9229"
       - "./bin/www"
-    volumes:
-      - ./harvested_data:/tmp/harvested_data
     links:
       - clearlydefined_mongo_db
       - crawler
@@ -35,8 +35,8 @@ services:
       context: ./crawler
       dockerfile: DevDockerfile
     env_file: azurite_localdb.env
-    volumes:
-      - ./harvested_data:/tmp/harvested_data
+    environment:
+      - CRAWLER_ECHO=true
     ports:
       - "5000:5000"
       - "9229:9229"
@@ -48,6 +48,7 @@ services:
       - azurite
   azurite:
     image: "mcr.microsoft.com/azure-storage/azurite"
+    command: "azurite --blobHost 0.0.0.0 --queueHost 0.0.0.0 --tableHost 0.0.0.0 --skipApiVersionCheck"
     ports:
       - "10000:10000"
       - "10001:10001"
@@ -55,8 +56,8 @@ services:
     volumes:
       - ./azurite_data:/data
   clearlydefined_mongo_db:
-    # image: "mongo:4.4.28"
-    image: "mongo:5.0.6"
+    image: "mongo:4.4.28"
+    #image: "mongo:5.0.6"
     ports:
       - "27017:27017"
   clearlydefined_mongo_seed:
