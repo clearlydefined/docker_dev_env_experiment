@@ -20,7 +20,13 @@ services:
       - "9230:9229"
     env_file: azurite_localdb.env
     environment:
+      - NODE_OPTIONS=--trace-deprecation
+      - APPINSIGHTS_EXPORT_LOG_LEVEL=debug
       - LOGGER_LOG_TO_CONSOLE=true
+      - CACHING_PROVIDER=redis
+      - CACHING_REDIS_SERVICE=redis
+      - CACHING_REDIS_PORT=6379
+      - CACHING_REDIS_TLS=false
     entrypoint:
       - "node"
       - "--inspect=0.0.0.0:9229"
@@ -29,6 +35,10 @@ services:
       - clearlydefined_mongo_db
       - crawler
       - azurite
+      - redis
+    depends_on:
+      redis:
+        condition: service_healthy
   crawler:
     platform: linux/amd64
     build:
@@ -64,3 +74,13 @@ services:
     image: "clearlydefined/docker_dev_env_experiment_clearlydefined_mongo_seed"
     links:
       - clearlydefined_mongo_db
+  redis:
+    image: "redis:6.0.14-alpine"
+    ports:
+      - "6379:6379"
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+      start_period: 5s
